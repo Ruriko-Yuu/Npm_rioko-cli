@@ -55,7 +55,7 @@ let promps = [
     name: "projectTemplate",
     message: "请选择框架",
     type: "list",
-    choices: ["Vue"],
+    choices: ["Vue", "Qwik"],
   },
 ];
 
@@ -65,7 +65,10 @@ inquirer.prompt(promps).then(async (answers) => {
   const url = templateList.app;
   // download(`direct:${'https://gitee.com/breezedeus/cnstd'}#master`, answers.projectName, { clone: true }, (err) => {
   download(
-    `direct:git@github.com:Ruriko-Yuu/RiokoCli-Vue3.git#my-branch`,
+    {
+      Vue: `direct:git@github.com:Ruriko-Yuu/RiokoCli-Vue3.git#my-branch`,
+      Qwik: `direct:git@github.com:Ruriko-Yuu/RiokoCli-Qwik.git#my-branch`
+    }[answers.projectTemplate],
     answers.projectName,
     { clone: true },
     () => {
@@ -87,6 +90,7 @@ inquirer.prompt(promps).then(async (answers) => {
               console.log("运行项目:", chalk.green(`yarn serve`));
           } else {
             console.log(chalk.red.bold("依赖安装失败!!!"));
+            spinner.stop();//结束
           }
         });
       } else {
