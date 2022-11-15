@@ -72,8 +72,10 @@ inquirer.prompt(promps).then(async (answers) => {
     answers.projectName,
     { clone: true },
     () => {
-      if (fs.readdirSync(`./${answers.projectName}`).includes(".git")) {
-        delDir(`./${answers.projectName}/.git`);
+      if (fs.readdirSync(`./${answers.projectName}`).includes(".gitignore")) {
+        if (fs.readdirSync(`./${answers.projectName}`).includes(".git")) {
+          delDir(`./${answers.projectName}/.git`);
+        }
         console.log(logSymbols.success, chalk.green("创建成功 开始下载依赖"));
         const spinner = ora('Loading unicorns').start();
         shell.exec(`cd ${answers.projectName} & yarn`, function(code, stdout, stderr) {
