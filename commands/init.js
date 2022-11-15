@@ -55,7 +55,7 @@ let promps = [
     name: "projectTemplate",
     message: "请选择框架",
     type: "list",
-    choices: ["Vue-Webpack", "Qwik", "Vue-Vite", "React-Vite"],
+    choices: ["Vue-Webpack", "Vue-Vite", "React-Vite", "Qwik"],
   },
 ];
 
@@ -69,7 +69,7 @@ inquirer.prompt(promps).then(async (answers) => {
       'Vue-Vite': `direct:git@github.com:Ruriko-Yuu/Npm_rioko-cli.git#vue-vite`,
       'Vue-Webpack': `direct:git@github.com:Ruriko-Yuu/Npm_rioko-cli.git#vue-webpack`,
       'React-Vite': `direct:git@github.com:Ruriko-Yuu/Npm_rioko-cli.git#react-vite`,
-      Qwik: `direct:git@github.com:Ruriko-Yuu/RiokoCli-Qwik.git#my-branch`
+      'Qwik': `direct:git@github.com:Ruriko-Yuu/RiokoCli-Qwik.git#my-branch`
     }[answers.projectTemplate],
     answers.projectName,
     { clone: true },
