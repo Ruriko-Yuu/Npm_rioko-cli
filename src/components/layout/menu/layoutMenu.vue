@@ -1,14 +1,18 @@
 <script lang="ts" setup>
 defineOptions({
-  name: 'HomeView',
+  name: 'layoutMenu',
 })
-const value = ref('1')
 </script>
 
 <template>
-  <svg-icon iconClass="collection"/>
-  {{ value }}
+  <menu>
+    menu
+  </menu>
+  <div class="main">
+    <router-view/>
+  </div>
 </template>
 
 <style rel="stylesheet/scss" lang="scss"></style>
 <style rel="stylesheet/scss" lang="scss" scoped></style>
+

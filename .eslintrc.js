@@ -3,10 +3,17 @@ module.exports = {
   env: {
     node: true
   },
+  globals: {
+    defineOptions: 'readonly',
+  },
   'extends': [
     'plugin:vue/vue3-essential',
     'eslint:recommended',
-    '@vue/typescript/recommended'
+    '@vue/typescript/recommended',
+    // 'plugin:vue/essential',
+    // 'airbnb-base',
+    // 'prettier',
+    './.eslintrc-auto-import.json'
   ],
   parserOptions: {
     ecmaVersion: 2020
