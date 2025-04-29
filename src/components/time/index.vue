@@ -2,7 +2,7 @@
 import { useTime } from "../../hooks/useTime";
 import { useCountdown } from "../../hooks/useCountdown";
 const { time } = useTime("hh:mm:ss");
-const { sum, timeRun } = useCountdown({force: 'sendMsg'});
+const { sum, state, timeRun } = useCountdown({ force: "sendMsg" });
 </script>
 
 <template>
@@ -10,8 +10,9 @@ const { sum, timeRun } = useCountdown({force: 'sendMsg'});
 	<p>{{ time }}</p>
 	<p>倒计时</p>
 	<p>
-		{{ sum }}
-		<button @click="timeRun">start</button>
+		<button @click="timeRun">
+			{{ state === "start" ? "发送" : state === "ing" ? sum + 's' : "重发" }}
+		</button>
 	</p>
 </template>
 
