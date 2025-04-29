@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import HelloWorld from "./components/HelloWorld.vue";
+import Time from "./components/time/index.vue";
 import { getTest, postTest } from "./service/api/test";
-getTest({})
-postTest({})
+getTest({});
+postTest({});
 </script>
 
 <template>
-	<HelloWorld msg="props msg" />
+	<Time />
 </template>
 
 <style>
